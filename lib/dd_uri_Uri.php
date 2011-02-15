@@ -127,7 +127,7 @@ class dd_uri_Uri {
      * @param $existingPostParams
      * @param $existingUrlParams
      */
-    public function getSite($site, $path, $options = null, $remember = null, $secure = null, $existingQueryParams = null, $existingPostParams = null, $existingUrlParams = null) {
+    public function getSite($site, $path = null, $options = null, $remember = null, $secure = null, $existingQueryParams = null, $existingPostParams = null, $existingUrlParams = null) {
         $args = func_get_args();
         return $this->getSiteRoot($site, $secure) . call_user_func_array(array($this, 'getPath'), $args);
     }
@@ -143,7 +143,7 @@ class dd_uri_Uri {
      * @param unknown_type $existingPostParams
      * @param unknown_type $existingUrlParams
      */
-    protected function getPath($site, $path, $options = null, $remember = null, $secure = null, $existingQueryParams = null, $existingPostParams = null, $existingUrlParams = null) {
+    protected function getPath($site, $path = null, $options = null, $remember = null, $secure = null, $existingQueryParams = null, $existingPostParams = null, $existingUrlParams = null) {
         $alreadyAdded = array();
         preg_match_all('/:(\w+)/', $path, $matches);
         foreach ( $matches[1] as $replaceCandidate ) {
